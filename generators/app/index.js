@@ -19,27 +19,27 @@ module.exports = class extends Generator {
       choices: [
         {
           name: 'Markup (index.twig)',
-          value: 'generateMarkup',
+          value: 'index.twig',
           checked: true
         },
         {
           name: 'Styling (style.styl)',
-          value: 'generateStyles',
+          value: 'style.styl',
           checked: true
         },
         {
           name: 'Script (script.js)',
-          value: 'generateScript',
+          value: 'script.js',
           checked: false
         },
         {
           name: 'Functions (functions.php)',
-          value: 'generateFunctions',
+          value: 'functions.php',
           checked: false
         },
         {
           name: 'Fields (fields.json)',
-          value: 'generateFields',
+          value: 'fields.json',
           checked: false
         }
       ]
@@ -53,58 +53,10 @@ module.exports = class extends Generator {
     var componentNameKebab = _.kebabCase(componentName)
     var componentNameLower = _.camelCase(componentName)
 
-    if (this.answers.files.indexOf('generateMarkup') > -1) {
+    for (var file of this.answers.files) {
       this.fs.copyTpl(
-        this.templatePath('index.twig'),
-        this.destinationPath(componentName + '/index.twig'),
-        {
-          componentName: componentName,
-          componentNameKebab: componentNameKebab,
-          componentNameLower: componentNameLower
-        }
-      )
-    }
-
-    if (this.answers.files.indexOf('generateStyles') > -1) {
-      this.fs.copyTpl(
-        this.templatePath('style.styl'),
-        this.destinationPath(componentName + '/style.styl'),
-        {
-          componentName: componentName,
-          componentNameKebab: componentNameKebab,
-          componentNameLower: componentNameLower
-        }
-      )
-    }
-
-    if (this.answers.files.indexOf('generateScript') > -1) {
-      this.fs.copyTpl(
-        this.templatePath('script.js'),
-        this.destinationPath(componentName + '/script.js'),
-        {
-          componentName: componentName,
-          componentNameKebab: componentNameKebab,
-          componentNameLower: componentNameLower
-        }
-      )
-    }
-
-    if (this.answers.files.indexOf('generateFields') > -1) {
-      this.fs.copyTpl(
-        this.templatePath('fields.json'),
-        this.destinationPath(componentName + '/fields.json'),
-        {
-          componentName: componentName,
-          componentNameKebab: componentNameKebab,
-          componentNameLower: componentNameLower
-        }
-      )
-    }
-
-    if (this.answers.files.indexOf('generateFunctions') > -1) {
-      this.fs.copyTpl(
-        this.templatePath('functions.php'),
-        this.destinationPath(componentName + '/functions.php'),
+        this.templatePath(file),
+        this.destinationPath(componentName + '/' + file),
         {
           componentName: componentName,
           componentNameKebab: componentNameKebab,
