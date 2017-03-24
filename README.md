@@ -10,6 +10,8 @@ A Yeoman generator for Flynt components.
 
 Run `yo flynt` to start the generator. You can select between **Components** and **Features**.
 
+If you want to check or uncheck a file for the generator make sure to use **space** to check/uncheck your selection. **enter** will submit your selection.
+
 ## Contribution
 
 1. Clone the project
