@@ -32,9 +32,20 @@ module.exports = class extends Generator {
   }
 
   writing () {
+    this.extraFiles = []
     var elementName = this.answers.elementName
     var elementNameKebab = _.kebabCase(elementName)
     var elementNameCamel = _.camelCase(elementName)
+
+    switch (this.contentType) {
+      case 'Components':
+        this.extraFiles.push('preview-desktop.jpg', 'preview-mobile.jpg')
+        this.answers.files.push('README.md', 'SNIPPETS.md')
+        break
+      case 'Features':
+        this.answers.files.push('README.md', 'SNIPPETS.md')
+        break
+    }
 
     for (var file of this.answers.files) {
       this.fs.copyTpl(
@@ -45,6 +56,13 @@ module.exports = class extends Generator {
           elementNameKebab: elementNameKebab,
           elementNameCamel: elementNameCamel
         }
+      )
+    }
+
+    for (var file of this.extraFiles) {
+      this.fs.copy(
+        this.templatePath(this.contentType + '/' + file),
+        this.destinationPath(this.contentType + '/' + elementName + '/' + file)
       )
     }
   }
