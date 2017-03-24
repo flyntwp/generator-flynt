@@ -4,11 +4,11 @@ A Yeoman generator for Flynt components.
 
 ## Installation
 
-`npm i bleech/generator-flynt-component`
+`npm i bleech/generator-flynt`
 
 ## Usage
 
-`yo flynt-component`
+`yo flynt`
 
 ## Contribution
 

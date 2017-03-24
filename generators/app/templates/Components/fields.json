@@ -14,8 +14,8 @@
     }
   ],
   "layout": {
-    "name": "<%= componentNameLower %>",
-    "label": "<%= componentName %>",
+    "name": "<%= elementNameCamel %>",
+    "label": "<%= elementName %>",
     "sub_fields": [
       {
         "label": "Text",

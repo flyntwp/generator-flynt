@@ -8,59 +8,42 @@ module.exports = class extends Generator {
 
   prompting () {
     return this.prompt([{
-      type: 'input',
-      name: 'componentName',
-      message: 'The new components name in upper camelcase',
-      default: 'NewComponent'
-    }, {
-      type: 'checkbox',
-      name: 'files',
-      message: 'What kind of files do you want to generate?',
+      type: 'list',
+      name: 'type',
+      message: 'What kind of Flynt content do you want to generate?',
       choices: [
         {
-          name: 'Markup (index.twig)',
-          value: 'index.twig',
-          checked: true
+          name: 'Component',
+          value: 'Components'
         },
         {
-          name: 'Styling (style.styl)',
-          value: 'style.styl',
-          checked: true
-        },
-        {
-          name: 'Script (script.js)',
-          value: 'script.js',
-          checked: false
-        },
-        {
-          name: 'Functions (functions.php)',
-          value: 'functions.php',
-          checked: false
-        },
-        {
-          name: 'Fields (fields.json)',
-          value: 'fields.json',
-          checked: false
+          name: 'Feature',
+          value: 'Features'
         }
       ]
     }]).then((answers) => {
-      this.answers = answers
+      this.contentType = answers.type
+      var contentPrompt = require('./prompts/' + answers.type + '.js')
+
+      return this.prompt(contentPrompt).then((answers) => {
+        this.answers = answers
+      })
     })
   }
 
   writing () {
-    var componentName = this.answers.componentName
-    var componentNameKebab = _.kebabCase(componentName)
-    var componentNameLower = _.camelCase(componentName)
+    var elementName = this.answers.elementName
+    var elementNameKebab = _.kebabCase(elementName)
+    var elementNameCamel = _.camelCase(elementName)
 
     for (var file of this.answers.files) {
       this.fs.copyTpl(
-        this.templatePath(file),
-        this.destinationPath(componentName + '/' + file),
+        this.templatePath(this.contentType + '/' + file),
+        this.destinationPath(this.contentType + '/' + elementName + '/' + file),
         {
-          componentName: componentName,
-          componentNameKebab: componentNameKebab,
-          componentNameLower: componentNameLower
+          elementName: elementName,
+          elementNameKebab: elementNameKebab,
+          elementNameCamel: elementNameCamel
         }
       )
     }

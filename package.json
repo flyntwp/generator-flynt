@@ -1,5 +1,5 @@
 {
-  "name": "generator-flynt-component",
+  "name": "generator-flynt",
   "version": "1.0.0",
   "description": "Yeoman Generator for Flynt Components",
   "main": "index.js",
@@ -10,8 +10,7 @@
     "yeoman-generator"
   ],
   "files": [
-    "markup",
-    "stylesheet"
+    "generators"
   ],
   "author": "Flynt",
   "license": "MIT",
