@@ -9,5 +9,7 @@ add_action('wp_enqueue_scripts', function () {
 });
 
 add_filter('Flynt/addComponentData?name=<%= elementName %>', function ($data) {
+  
+
   return $data;
 });
