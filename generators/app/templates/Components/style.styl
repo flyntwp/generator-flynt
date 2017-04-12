@@ -4,5 +4,7 @@ $gutterWidth = lookup('$global-layout-gutterWidth') || 15px
 $containerMaxWidth = lookup('$global-layout-containerMaxWidth') || 1140px
 
 .flyntComponent[is="flynt-<%= elementNameKebab %>"]
-  h1
-    font-size: 40px
+  *,
+  *:before,
+  *:after
+    box-sizing: border-box
