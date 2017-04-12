@@ -19,6 +19,10 @@ module.exports = class extends Generator {
         {
           name: 'Feature',
           value: 'Features'
+        },
+        {
+          name: 'Page Template',
+          value: 'templates'
         }
       ]
     }]).then((answers) => {
@@ -45,25 +49,40 @@ module.exports = class extends Generator {
       case 'Features':
         this.answers.files.push('README.md', 'SNIPPETS.md')
         break
+      case 'templates':
+        this.extraFiles.push('page-templateName.php')
     }
 
-    for (var file of this.answers.files) {
-      this.fs.copyTpl(
-        this.templatePath(this.contentType + '/' + file),
-        this.destinationPath(this.contentType + '/' + elementName + '/' + file),
-        {
-          elementName: elementName,
-          elementNameKebab: elementNameKebab,
-          elementNameCamel: elementNameCamel
-        }
-      )
+    if (this.answers.files) {
+      for (var file of this.answers.files) {
+        this.fs.copyTpl(
+          this.templatePath(this.contentType + '/' + file),
+          this.destinationPath(this.contentType + '/' + elementName + '/' + file),
+          {
+            elementName: elementName,
+            elementNameKebab: elementNameKebab,
+            elementNameCamel: elementNameCamel
+          }
+        )
+      }
     }
 
     for (var file of this.extraFiles) {
-      this.fs.copy(
-        this.templatePath(this.contentType + '/' + file),
-        this.destinationPath(this.contentType + '/' + elementName + '/' + file)
-      )
+      if (this.contentType === 'templates') {
+        const newFile = file.replace('templateName', _.kebabCase(this.answers.templateName))
+        this.fs.copyTpl(
+          this.templatePath(this.contentType + '/' + file),
+          this.destinationPath(this.contentType + '/' + newFile),
+          {
+            templateName: this.answers.templateName
+          }
+        )
+      } else {
+        this.fs.copy(
+          this.templatePath(this.contentType + '/' + file),
+          this.destinationPath(this.contentType + '/' + elementName + '/' + file)
+        )
+      }
     }
   }
 }
