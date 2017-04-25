@@ -41,6 +41,10 @@ module.exports = class extends Generator {
     var elementNameKebab = _.kebabCase(elementName)
     var elementNameCamel = _.camelCase(elementName)
 
+    if (this.answers.elementCategory) {
+      elementName = this.answers.elementCategory + elementName
+    }
+
     switch (this.contentType) {
       case 'Components':
         this.extraFiles.push('preview-desktop.jpg', 'preview-mobile.jpg')
