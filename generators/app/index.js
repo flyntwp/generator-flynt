@@ -38,12 +38,13 @@ module.exports = class extends Generator {
   writing () {
     this.extraFiles = []
     var elementName = this.answers.elementName
-    var elementNameKebab = _.kebabCase(elementName)
-    var elementNameCamel = _.camelCase(elementName)
-
+    
     if (this.answers.elementCategory) {
       elementName = this.answers.elementCategory + elementName
     }
+
+    var elementNameKebab = _.kebabCase(elementName)
+    var elementNameCamel = _.camelCase(elementName)
 
     switch (this.contentType) {
       case 'Components':

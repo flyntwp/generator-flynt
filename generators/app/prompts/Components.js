@@ -8,20 +8,12 @@ module.exports = [{
       value: 'Accordion'
     },
     {
-      name: 'Audio (A audio player component)',
-      value: 'Audio'
-    },
-    {
       name: 'Block (A block component without any further specification)',
       value: 'Block'
     },
     {
-      name: 'Box (A content block component wrapped in a larger, wrapper box)',
-      value: 'Box'
-    },
-    {
-      name: 'Cols (A table component with a fixed count of items on one row)',
-      value: 'Cols'
+      name: 'Calendar (A table component for date related data)',
+      value: 'Calendar'
     },
     {
       name: 'Document (A HTML document component)',
@@ -60,10 +52,6 @@ module.exports = [{
       value: 'Navigation'
     },
     {
-      name: 'Pagination (A pagination component)',
-      value: 'Pagination'
-    },
-    {
       name: 'Sidebar (A sidebar component)',
       value: 'Sidebar'
     },
@@ -72,16 +60,16 @@ module.exports = [{
       value: 'Slider'
     },
     {
+      name: 'Table (A table component)',
+      value: 'Tabs'
+    },
+    {
       name: 'Tabs (A tabbed component)',
       value: 'Tabs'
     },
     {
       name: 'Video (A Video component)',
       value: 'Video'
-    },
-    {
-      name: 'Wysiwyg (A Wysiwyg based component)',
-      value: 'Wysiwyg'
     },
     {
       name: 'Other (Define a Category by yourself inside the ComponentName)',
