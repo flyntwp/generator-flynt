@@ -1,6 +1,6 @@
 {
   "name": "generator-flynt",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Yeoman Generator for Flynt Components",
   "main": "index.js",
   "scripts": {

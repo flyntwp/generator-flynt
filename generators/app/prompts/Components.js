@@ -61,7 +61,7 @@ module.exports = [{
     },
     {
       name: 'Table (A table component)',
-      value: 'Tabs'
+      value: 'Table'
     },
     {
       name: 'Tabs (A tabbed component)',
