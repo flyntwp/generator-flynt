@@ -4,7 +4,7 @@ A Yeoman generator for Flynt components.
 
 ## Installation
 
-`npm i -g bleech/generator-flynt`
+`npm i -g generator-flynt` or install it directly from yo itself
 
 ## Usage
 
