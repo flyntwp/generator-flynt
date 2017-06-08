@@ -43,6 +43,7 @@ module.exports = class extends Generator {
   }
 
   end () {
+    // TODO: do some checks to be sure that everything went well
     this.log(`Successfully created feature: ${this.nameUpperCamelCase}`)
   }
 }
