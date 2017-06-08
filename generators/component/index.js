@@ -14,39 +14,38 @@ module.exports = class extends Generator {
 
   prompting () {
     return this.prompt(prompts).then((answers) => {
-      this.name = answers.name
-      if (answers.category) {
-        // TODO: instead of prepending this name, use base component selection and let them choose the name themselves 
-        this.name = answers.category + this.name
-      }
-      this.nameKebab = _.kebabCase(this.name)
-      this.nameCamel = _.camelCase(this.name)
+      // TODO: use base component selection and auto prepend that component's category, use this for custom components only
+      const name = answers.category ? answers.category + answers.name : answers.name
+
+      this.nameKebabCase = _.kebabCase(name)
+      this.nameLowerCamelCase = _.camelCase(name)
+      this.nameUpperCamelCase = _.upperFirst(this.nameLowerCamelCase)
+      this.template = 'custom'
     })
   }
 
   writing () {
     this.log('Creating files...')
 
+    const destDir = 'Components/' + this.nameUpperCamelCase + '/'
+
     this.fs.copy(
-      this.templatePath('*.jpg'),
-      this.destinationPath('Components/' + this.name + '/')
+      this.templatePath(this.template + '/*.jpg'),
+      this.destinationPath(destDir)
     )
 
     this.fs.copyTpl(
-      [
-        this.templatePath('*'),
-        '!' + this.templatePath('*.jpg')
-      ],
-      this.destinationPath('Components/' + this.name + '/'),
+      this.templatePath(this.template + '/!(*.jpg)'),
+      this.destinationPath(destDir),
       {
-        name: this.name,
-        nameKebab: this.nameKebab,
-        nameCamel: this.nameCamel
+        name: this.nameUpperCamelCase,
+        nameKebab: this.nameKebabCase,
+        nameCamel: this.nameLowerCamelCase
       }
     )
   }
 
   end () {
-    this.log(`Successfully created component: ${this.name}`)
+    this.log(`Successfully created component: ${this.nameUpperCamelCase}`)
   }
 }
