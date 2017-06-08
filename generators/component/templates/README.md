@@ -1,8 +1,8 @@
-## <%= elementName %> README
+## <%= name %> README
 
 ### Title:
 
-<%= elementName %>
+<%= name %>
 
 ---
 
