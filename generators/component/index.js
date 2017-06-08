@@ -24,7 +24,12 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'name',
         message: 'Name of the new component in UpperCamelCase',
-        default: 'ComponentName'
+        validate: function (input) {
+          if (!input.length) {
+            return 'Please enter a name!'
+          }
+          return true
+        }
       }
     ]).then((answers) => {
       // TODO: use base component selection and auto prepend that component's category, use this for custom components only
