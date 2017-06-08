@@ -1,8 +1,8 @@
-## <%= elementName %> Feature README
+## <%= namePretty %> Feature README
 
 ### Title:
 
-<%= elementName %>
+<%= namePretty %>
 
 ---
 

@@ -1,21 +1,20 @@
 {
   "name": "generator-flynt",
-  "version": "1.0.5",
-  "description": "Yeoman Generator for Flynt Components",
+  "version": "0.1.0",
+  "description": "Yeoman Generator for the Flynt Framework",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "yeoman-generator"
   ],
   "files": [
     "generators"
   ],
-  "author": "Flynt",
+  "author": "flyntwp",
   "license": "MIT",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "lodash": "^4.17.4",
-    "yeoman-generator": "^1.1.1"
+    "yeoman-generator": "^1.1.1",
+    "yosay": "^2.0.0"
   }
 }
