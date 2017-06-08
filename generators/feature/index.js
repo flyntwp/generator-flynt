@@ -25,26 +25,16 @@ module.exports = class extends Generator {
   }
 
   writing () {
-    // TODO: automate this, take all files in directory
-    const files = [
-      'README.md',
-      'SNIPPETS.md',
-      'functions.php',
-      'fields.json'
-    ]
-
     this.log('Creating files...')
 
-    for (const file of files) {
-      this.fs.copyTpl(
-        this.templatePath(file),
-        this.destinationPath('Features/' + this.nameUpperCamelCase + '/' + file),
-        {
-          namePretty: this.namePretty,
-          nameUpperCamelCase: this.nameUpperCamelCase
-        }
-      )
-    }
+    this.fs.copyTpl(
+      this.templatePath('*'),
+      this.destinationPath('Features/' + this.nameUpperCamelCase + '/'),
+      {
+        namePretty: this.namePretty,
+        nameUpperCamelCase: this.nameUpperCamelCase
+      }
+    )
   }
 
   end () {
