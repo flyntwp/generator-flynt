@@ -32,8 +32,12 @@ module.exports = class extends Generator {
         }
       }
     ]).then((answers) => {
+      let name = _.upperFirst(answers.name)
+
       // TODO: use base component selection and auto prepend that component's category, use this for custom components only
-      const name = answers.category ? answers.category + answers.name : answers.name
+      if (answers.category) {
+        name = answers.category + name
+      }
 
       this.nameKebabCase = _.kebabCase(name)
       this.nameLowerCamelCase = _.camelCase(name)
