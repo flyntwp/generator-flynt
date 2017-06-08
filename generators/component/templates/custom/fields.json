@@ -14,8 +14,8 @@
     }
   ],
   "layout": {
-    "name": "<%= nameCamel %>",
-    "label": "<%= name %>",
+    "name": "<%= nameLowerCamelCase %>",
+    "label": "<%= namePretty %>",
     "sub_fields": [
       {
         "label": "Text",
