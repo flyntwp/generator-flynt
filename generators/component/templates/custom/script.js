@@ -1,4 +1,4 @@
-class <%= name %> extends window.HTMLDivElement {
+class <%= nameUpperCamelCase %> extends window.HTMLDivElement {
   constructor (self) {
     self = super(self)
     self.$ = $(self)
@@ -11,8 +11,8 @@ class <%= name %> extends window.HTMLDivElement {
   }
 
   connectedCallback () {
-    console.log('module <%= name %> connected', this)
+    console.log('module <%= namePretty %> connected', this)
   }
 }
 
-window.customElements.define('flynt-<%= nameKebab %>', <%= name %>, {extends: 'div'})
+window.customElements.define('flynt-<%= nameKebabCase %>', <%= nameUpperCamelCase %>, {extends: 'div'})

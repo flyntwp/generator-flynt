@@ -39,9 +39,11 @@ module.exports = class extends Generator {
         name = answers.category + name
       }
 
+      this.namePretty = _.startCase(name)
       this.nameKebabCase = _.kebabCase(name)
       this.nameLowerCamelCase = _.camelCase(name)
       this.nameUpperCamelCase = _.upperFirst(this.nameLowerCamelCase)
+
       this.template = 'custom'
     })
   }
@@ -60,9 +62,10 @@ module.exports = class extends Generator {
       this.templatePath(this.template + '/!(*.jpg)'),
       this.destinationPath(destDir),
       {
-        name: this.nameUpperCamelCase,
-        nameKebab: this.nameKebabCase,
-        nameCamel: this.nameLowerCamelCase
+        namePretty: this.namePretty,
+        nameKebabCase: this.nameKebabCase,
+        nameUpperCamelCase: this.nameUpperCamelCase,
+        nameLowerCamelCase: this.nameLowerCamelCase
       }
     )
   }
