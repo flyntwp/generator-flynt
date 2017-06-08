@@ -16,7 +16,12 @@ module.exports = class extends Generator {
       type: 'input',
       name: 'name',
       message: 'Name of the new feature in UpperCamelCase',
-      default: 'NewFeature'
+      validate: function (input) {
+        if (!input.length) {
+          return 'Please enter a name!'
+        }
+        return true
+      }
     }).then((answers) => {
       const name = answers.name
       this.namePretty = _.startCase(name)
