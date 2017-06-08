@@ -44,6 +44,7 @@ module.exports = class extends Generator {
       this.nameLowerCamelCase = _.camelCase(name)
       this.nameUpperCamelCase = _.upperFirst(this.nameLowerCamelCase)
 
+      // TODO: prompt for this template (base components vs. custom component)
       this.template = 'custom'
     })
   }
@@ -71,6 +72,7 @@ module.exports = class extends Generator {
   }
 
   end () {
+    // TODO: do some checks to be sure that everything went well
     this.log(`Successfully created component: ${this.nameUpperCamelCase}`)
   }
 }
