@@ -1,6 +1,6 @@
 const Generator = require('yeoman-generator')
 const _ = require('lodash')
-const prompts = require('./prompts.js')
+const categories = require('./data/categories.js')
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -13,7 +13,20 @@ module.exports = class extends Generator {
   }
 
   prompting () {
-    return this.prompt(prompts).then((answers) => {
+    return this.prompt([
+      {
+        type: 'list',
+        name: 'category',
+        message: 'What category does your new component fit best?',
+        choices: categories
+      },
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Name of the new component in UpperCamelCase',
+        default: 'ComponentName'
+      }
+    ]).then((answers) => {
       // TODO: use base component selection and auto prepend that component's category, use this for custom components only
       const name = answers.category ? answers.category + answers.name : answers.name
 
