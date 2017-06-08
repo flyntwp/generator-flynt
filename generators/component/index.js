@@ -51,15 +51,15 @@ module.exports = class extends Generator {
   writing () {
     this.log('Creating files...')
 
-    const destDir = 'Components/' + this.nameUpperCamelCase + '/'
+    const destDir = `Components/${this.nameUpperCamelCase}/`
 
     this.fs.copy(
-      this.templatePath(this.template + '/*.jpg'),
+      this.templatePath(`${this.template}/*.jpg`),
       this.destinationPath(destDir)
     )
 
     this.fs.copyTpl(
-      this.templatePath(this.template + '/!(*.jpg)'),
+      this.templatePath(`${this.template}/!(*.jpg)`),
       this.destinationPath(destDir),
       {
         namePretty: this.namePretty,

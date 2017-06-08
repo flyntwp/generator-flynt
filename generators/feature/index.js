@@ -18,9 +18,9 @@ module.exports = class extends Generator {
       message: 'Name of the new feature in UpperCamelCase',
       default: 'NewFeature'
     }).then((answers) => {
-      this.name = answers.name
-      this.namePretty = _.startCase(this.name)
-      this.nameUpperCamelCase = _.upperFirst(_.camelCase(this.name))
+      const name = answers.name
+      this.namePretty = _.startCase(name)
+      this.nameUpperCamelCase = _.upperFirst(_.camelCase(name))
     })
   }
 
@@ -29,7 +29,7 @@ module.exports = class extends Generator {
 
     this.fs.copyTpl(
       this.templatePath('*'),
-      this.destinationPath('Features/' + this.nameUpperCamelCase + '/'),
+      this.destinationPath(`Features/${this.nameUpperCamelCase}/`),
       {
         namePretty: this.namePretty,
         nameUpperCamelCase: this.nameUpperCamelCase
@@ -38,6 +38,6 @@ module.exports = class extends Generator {
   }
 
   end () {
-    this.log(`Successfully created feature: ${this.namePretty}`)
+    this.log(`Successfully created feature: ${this.nameUpperCamelCase}`)
   }
 }
