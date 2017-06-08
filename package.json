@@ -2,19 +2,31 @@
   "name": "generator-flynt",
   "version": "0.1.0",
   "description": "Yeoman Generator for the Flynt Framework",
-  "main": "index.js",
+  "homepage": "https://github.com/bleech/generator-flynt",
+  "bugs": "https://github.com/bleech/generator-flynt/issues",
+  "author": "bleech",
+  "license": "MIT",
+  "main": "generators/app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bleech/generator-flynt.git"
+  },
   "keywords": [
     "yeoman-generator"
   ],
   "files": [
     "generators"
   ],
-  "author": "flyntwp",
-  "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "lodash": "^4.17.4",
     "yeoman-generator": "^1.1.1",
     "yosay": "^2.0.0"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "yo": ">=2.0.0"
+  },
+  "engines": {
+    "node": ">=6 <7"
   }
 }
