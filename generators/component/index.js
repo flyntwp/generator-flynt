@@ -38,6 +38,8 @@ module.exports = class extends Generator {
       'style.styl'
     ]
 
+    this.log('Creating files...')
+
     for (const file of files) {
       if (_.endsWith(file, '.jpg')) {
         this.fs.copy(
@@ -56,5 +58,9 @@ module.exports = class extends Generator {
         )
       }
     }
+  }
+
+  end () {
+    this.log(`Successfully created component: ${this.name}`)
   }
 }

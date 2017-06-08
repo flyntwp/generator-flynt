@@ -79,6 +79,6 @@ module.exports = [{
 }, {
   type: 'input',
   name: 'name',
-  message: 'The new components name in UpperCamelCase',
+  message: 'Name of the new component in UpperCamelCase',
   default: 'ComponentName'
 }]
