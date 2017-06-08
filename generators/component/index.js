@@ -25,39 +25,25 @@ module.exports = class extends Generator {
   }
 
   writing () {
-    // TODO: automate this, take all files in directory
-    const files = [
-      'README.md',
-      'SNIPPETS.md',
-      'fields.json',
-      'functions.php',
-      'index.twig',
-      'preview-desktop.jpg',
-      'preview-mobile.jpg',
-      'script.js',
-      'style.styl'
-    ]
-
     this.log('Creating files...')
 
-    for (const file of files) {
-      if (_.endsWith(file, '.jpg')) {
-        this.fs.copy(
-          this.templatePath(file),
-          this.destinationPath('Components/' + this.name + '/' + file)
-        )
-      } else {
-        this.fs.copyTpl(
-          this.templatePath(file),
-          this.destinationPath('Components/' + this.name + '/' + file),
-          {
-            name: this.name,
-            nameKebab: this.nameKebab,
-            nameCamel: this.nameCamel
-          }
-        )
+    this.fs.copy(
+      this.templatePath('*.jpg'),
+      this.destinationPath('Components/' + this.name + '/')
+    )
+
+    this.fs.copyTpl(
+      [
+        this.templatePath('*'),
+        '!' + this.templatePath('*.jpg')
+      ],
+      this.destinationPath('Components/' + this.name + '/'),
+      {
+        name: this.name,
+        nameKebab: this.nameKebab,
+        nameCamel: this.nameCamel
       }
-    }
+    )
   }
 
   end () {
