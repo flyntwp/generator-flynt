@@ -17,13 +17,20 @@
   "files": [
     "generators"
   ],
+  "scripts": {
+    "release": "standard-version",
+    "releaseGithub": "conventional-github-releaser -p angular"
+  },
   "dependencies": {
     "lodash": "^4.17.4",
     "yeoman-generator": "^1.1.1",
     "yosay": "^2.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "conventional-github-releaser": "^1.1.11",
+    "standard-version": "^4.0.0"
+  },
   "engines": {
-    "node": ">=6 <7"
+    "node": ">=6"
   }
 }
