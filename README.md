@@ -13,7 +13,7 @@
 
 ## Install
 
-The used node version should be `^6`. If you use a node version manager (e.g. [nave](https://github.com/isaacs/nave)), use `npm` to install globally:
+The node version used should be `^6`. If you use a node version manager (e.g. [nave](https://github.com/isaacs/nave)), use `npm` to install globally:
 
 ```bash
 $ npm i -g @flyntwp/generator-flynt
@@ -33,7 +33,7 @@ Run `yo @flyntwp/flynt` to start the generator. You can select between **Compone
 
 This project is maintained by [bleech](https://bleech.de).
 
-Main people in charge of the repo are:
+The main people in charge of the repo are:
 
 - [Dominik Tränklein](https://github.com/domtra)
 - [Doğa Gürdal](https://github.com/Qakulukiam)
@@ -43,12 +43,12 @@ Main people in charge of the repo are:
 To contribute, please use github [issues](https://github.com/flyntwp/generator-flynt/issues). If you are a developer and would like to submit a pull request, do the following:
 
 1. Fork the project and clone it.
-2. Run npm install inside the cloned folder.
+2. Run `npm install` inside the cloned folder.
 3. Run `npm link` to link the local installation for development purposes. (Run `npm unlink` to undo this step.)
 4. In any folder run `yo @flyntwp/flynt` to run your local development version and test your changes.
 5. Send a pull request from your fork to the main repo's master branch.
 
-Small note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
+If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
 ## License
 
