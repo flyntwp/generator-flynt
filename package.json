@@ -1,15 +1,15 @@
 {
-  "name": "generator-flynt",
+  "name": "@flyntwp/generator-flynt",
   "version": "0.1.0",
   "description": "Yeoman Generator for the Flynt Framework",
-  "homepage": "https://github.com/bleech/generator-flynt",
-  "bugs": "https://github.com/bleech/generator-flynt/issues",
+  "homepage": "https://github.com/flyntwp/generator-flynt",
+  "bugs": "https://github.com/flyntwp/generator-flynt/issues",
   "author": "bleech",
   "license": "MIT",
   "main": "generators/app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bleech/generator-flynt.git"
+    "url": "git://github.com/flyntwp/generator-flynt.git"
   },
   "keywords": [
     "yeoman-generator"
