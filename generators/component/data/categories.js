@@ -1,74 +1,77 @@
+const inquirer = require('inquirer')
+
 module.exports = [
   {
-    name: 'Accordion (A accordion component)',
+    name: 'Accordion',
     value: 'Accordion'
   },
   {
-    name: 'Block (A block component without any further specification)',
+    name: 'Block (A component without any further specification)',
     value: 'Block'
   },
   {
-    name: 'Calendar (A table component for date related data)',
+    name: 'Calendar (A table for date related data)',
     value: 'Calendar'
   },
   {
-    name: 'Document (A HTML document component)',
+    name: 'Document',
     value: 'Document'
   },
   {
-    name: 'Form (A form component)',
+    name: 'Form',
     value: 'Form'
   },
   {
-    name: 'Grid (A grid component with a specific count of items on one row)',
+    name: 'Grid (Specific count of items per row)',
     value: 'Grid'
   },
   {
-    name: 'Hero (A hero component for large section headers)',
+    name: 'Hero (Large section header)',
     value: 'Hero'
   },
   {
-    name: 'Layout (A flynt layout component which contains different component areas)',
+    name: 'Layout (Contains different component areas)',
     value: 'Layout'
   },
   {
-    name: 'List (A list component for items with flexible widths in a horizontal or vertical list)',
+    name: 'List (Items in a horizontal or vertical list)',
     value: 'List'
   },
   {
-    name: 'Map (A map component)',
+    name: 'Map',
     value: 'Map'
   },
   {
-    name: 'Modal (A modal component)',
+    name: 'Modal',
     value: 'Modal'
   },
   {
-    name: 'Navigation (A navigation component)',
+    name: 'Navigation',
     value: 'Navigation'
   },
   {
-    name: 'Sidebar (A sidebar component)',
+    name: 'Sidebar',
     value: 'Sidebar'
   },
   {
-    name: 'Slider (A slider component)',
+    name: 'Slider',
     value: 'Slider'
   },
   {
-    name: 'Table (A table component)',
+    name: 'Table',
     value: 'Table'
   },
   {
-    name: 'Tabs (A tabbed component)',
+    name: 'Tabs',
     value: 'Tabs'
   },
   {
-    name: 'Video (A Video component)',
+    name: 'Video',
     value: 'Video'
   },
   {
-    name: 'Other (Define a Category by yourself inside the ComponentName)',
+    name: 'Custom (Manually specify a category within the component name)',
     value: false
-  }
+  },
+  new inquirer.Separator()
 ]
