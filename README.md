@@ -1,21 +1,55 @@
-# Yo Flynt!
+# Flynt Yeoman Generator _(generator-flynt)_
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-A Yeoman generator for Flynt components.
+> A Yeoman generator for Flynt components
 
-## Installation
+## Table of Contents
 
-`npm i -g generator-flynt` or install it directly from yo itself
+- [Install](#install)
+- [Usage](#usage)
+- [Maintainers](#maintainers)
+- [Contribute](#contribute)
+- [License](#license)
+
+## Install
+
+The used node version should be `^6`. If you use a node version manager (e.g. [nave](https://github.com/isaacs/nave)), use `npm` to install globally:
+
+```bash
+$ npm i -g @flyntwp/generator-flynt
+```
+
+Otherwise you can use yarn as well:
+
+```bash
+$ yarn global add @flyntwp/generator-flynt
+```
 
 ## Usage
 
 Run `yo flynt` to start the generator. You can select between **Components** and **Features**.
 
-If you want to check or uncheck a file for the generator make sure to use **space** to check/uncheck your selection. **enter** will submit your selection.
+## Maintainers
 
-## Contribution
+This project is maintained by [bleech](https://bleech.de).
 
-1. Clone the project
-2. Run npm install inside the cloned folder
-3. Run `npm link` to link the local installation for development purposes
-4. In any folder run `yo flynt` to run your local development version and test your changes
-5. Send in pull request to fix an issue, refactor code or add a new feature **(Please use Commitizen)**
+Main people in charge of the repo are:
+
+- [Dominik Tränklein](https://github.com/domtra)
+- [Doğa Gürdal](https://github.com/Qakulukiam)
+
+## Contribute
+
+To contribute, please use github [issues](https://github.com/flyntwp/generator-flynt/issues). If you are a developer and would like to submit a pull request, do the following:
+
+1. Fork the project and clone it.
+2. Run npm install inside the cloned folder.
+3. Run `npm link` to link the local installation for development purposes. (Run `npm unlink` to undo this step.)
+4. In any folder run `yo flynt` to run your local development version and test your changes.
+5. Send a pull request from your fork to the main repo's master branch.
+
+Small note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
+
+## License
+
+MIT © [bleech](https://bleech.de)
