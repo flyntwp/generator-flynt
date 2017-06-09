@@ -27,7 +27,7 @@ $ yarn global add @flyntwp/generator-flynt
 
 ## Usage
 
-Run `yo flynt` to start the generator. You can select between **Components** and **Features**.
+Run `yo @flyntwp/flynt` to start the generator. You can select between **Components** and **Features**.
 
 ## Maintainers
 
@@ -45,7 +45,7 @@ To contribute, please use github [issues](https://github.com/flyntwp/generator-f
 1. Fork the project and clone it.
 2. Run npm install inside the cloned folder.
 3. Run `npm link` to link the local installation for development purposes. (Run `npm unlink` to undo this step.)
-4. In any folder run `yo flynt` to run your local development version and test your changes.
+4. In any folder run `yo @flyntwp/flynt` to run your local development version and test your changes.
 5. Send a pull request from your fork to the main repo's master branch.
 
 Small note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
