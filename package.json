@@ -23,9 +23,6 @@
     "yosay": "^2.0.0"
   },
   "devDependencies": {},
-  "peerDependencies": {
-    "yo": ">=2.0.0"
-  },
   "engines": {
     "node": ">=6 <7"
   }
