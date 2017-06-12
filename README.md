@@ -1,7 +1,7 @@
 # Flynt Yeoman Generator _(generator-flynt)_
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-> A Yeoman generator for Flynt
+> A Yeoman generator for [Flynt](https://flyntwp.com)
 
 ## Table of Contents
 
