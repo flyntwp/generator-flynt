@@ -40,7 +40,9 @@ The main people in charge of the repo are:
 
 ## Contribute
 
-To contribute, please use github [issues](https://github.com/flyntwp/generator-flynt/issues). If you are a developer and would like to submit a pull request, do the following:
+To contribute, please use GitHub [issues](https://github.com/flyntwp/generator-flynt/issues). Please also take a moment to read the [Contributing Guidelines](https://github.com/flyntwp/guidelines/blob/master/CONTRIBUTING.md) and [Code of Conduct](https://github.com/flyntwp/guidelines/blob/master/CODE_OF_CONDUCT.md).
+
+If you are a developer and would like to submit a pull request, do the following:
 
 1. Fork the project and clone it.
 2. Run `npm install` inside the cloned folder.
