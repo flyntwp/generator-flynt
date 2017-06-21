@@ -37,6 +37,7 @@ The main people in charge of the repo are:
 
 - [Dominik Tränklein](https://github.com/domtra)
 - [Doğa Gürdal](https://github.com/Qakulukiam)
+- [Dominik Biedebach](https://github.com/bdbch)
 
 ## Contribute
 
