@@ -75,7 +75,11 @@ module.exports = class extends Generator {
       .filter(file => fs.statSync(this.destinationPath(`Components/${file}`)).isDirectory())
       .reduce((carry, component) => {
         const existingFiles = fs.readdirSync(this.destinationPath(`Components/${component}`))
-        const validFiles = _.difference(templateFiles, existingFiles)
+        const validFiles = _.differenceWith(
+          templateFiles,
+          existingFiles,
+          (a, b) => a.toLowerCase() === b.toLowerCase()
+        )
         if (validFiles.length) {
           carry[component] = validFiles
         }
