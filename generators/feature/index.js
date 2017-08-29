@@ -1,5 +1,6 @@
 const Generator = require('yeoman-generator')
 const _ = require('lodash')
+const helpers = require('../app/helpers.js')
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -7,8 +8,9 @@ module.exports = class extends Generator {
   }
 
   initializing () {
+    helpers.checkValidFlyntDirectory(this)
+    this.themePath = helpers.getThemePath(this)
     this.log('Starting Flynt Feature Generator...')
-    // TODO: check if path is correct (flynt theme directory)
   }
 
   prompting () {
@@ -34,7 +36,7 @@ module.exports = class extends Generator {
 
     this.fs.copyTpl(
       this.templatePath('*'),
-      this.destinationPath(`Features/${this.nameUpperCamelCase}/`),
+      `${this.themePath}/Features/${this.nameUpperCamelCase}/`,
       {
         namePretty: this.namePretty,
         nameUpperCamelCase: this.nameUpperCamelCase
@@ -43,7 +45,6 @@ module.exports = class extends Generator {
   }
 
   end () {
-    // TODO: do some checks to be sure that everything went well
     this.log(`Successfully created feature: ${this.nameUpperCamelCase}`)
   }
 }
