@@ -1,9 +1,14 @@
 const Generator = require('yeoman-generator')
 const yosay = require('yosay')
+const helpers = require('./helpers.js')
 
 module.exports = class extends Generator {
   constructor (args, opts) {
     super(args, opts)
+  }
+
+  initializing() {
+    helpers.checkValidFlyntDirectory(this)
   }
 
   prompting() {

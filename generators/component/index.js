@@ -1,7 +1,8 @@
 const Generator = require('yeoman-generator')
 const _ = require('lodash')
-const categories = require('./data/categories.js')
 const fs = require('fs')
+const categories = require('./data/categories.js')
+const helpers = require('../app/helpers.js')
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -9,8 +10,10 @@ module.exports = class extends Generator {
   }
 
   initializing () {
+    helpers.checkValidFlyntDirectory(this)
+    this.themePath = helpers.getThemePath(this)
+    this.log(this.themePath)
     this.log('Starting Flynt Component Generator...')
-    // TODO: check if path is correct (flynt theme directory)
   }
 
   prompting () {
@@ -69,10 +72,10 @@ module.exports = class extends Generator {
 
   _promptComponentFile() {
     const templateFiles = fs.readdirSync(this.templatePath())
-    const components = fs.readdirSync(this.destinationPath('Components'))
-      .filter(file => fs.statSync(this.destinationPath(`Components/${file}`)).isDirectory())
+    const components = fs.readdirSync(`${this.themePath}/Components`)
+      .filter(file => fs.statSync(`${this.themePath}/Components/${file}`).isDirectory())
       .reduce((carry, component) => {
-        const existingFiles = fs.readdirSync(this.destinationPath(`Components/${component}`))
+        const existingFiles = fs.readdirSync(`${this.themePath}/Components/${component}`)
         const validFiles = _.differenceWith(
           templateFiles,
           existingFiles,
@@ -122,16 +125,16 @@ module.exports = class extends Generator {
   _writeCustomComponent() {
     this.log('Creating files...')
     
-    const destDir = `Components/${this.nameUpperCamelCase}/`
+    const destDir = `${this.themePath}/Components/${this.nameUpperCamelCase}/`
 
     this.fs.copy(
       this.templatePath(`*.jpg`),
-      this.destinationPath(destDir)
+      destDir
     )
 
     this.fs.copyTpl(
       this.templatePath(`!(*.jpg)`),
-      this.destinationPath(destDir),
+      destDir,
       {
         namePretty: this.namePretty,
         nameKebabCase: this.nameKebabCase,
@@ -146,19 +149,19 @@ module.exports = class extends Generator {
 
     const nonTemplateFiles = this.files.filter(file => file.endsWith('.jpg'))
     const templateFiles = _.difference(this.files, nonTemplateFiles)
-    const destDir = `Components/${this.name}/`
+    const destDir = `${this.themePath}/Components/${this.name}/`
 
     if (nonTemplateFiles.length) {
       this.fs.copy(
         this.templatePath(`*(${nonTemplateFiles.join('|')})`),
-        this.destinationPath(destDir)
+        destDir
       )
     }
 
     if (templateFiles.length) {
       this.fs.copyTpl(
         this.templatePath(`*(${templateFiles.join('|')})`),
-        this.destinationPath(destDir),
+        destDir,
         {
           namePretty: this.namePretty,
           nameKebabCase: this.nameKebabCase,
