@@ -3,8 +3,6 @@ const _ = require('lodash')
 const categories = require('./data/categories.js')
 const fs = require('fs')
 
-// TODO: separate type choices into seperate imports / files
-
 module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
