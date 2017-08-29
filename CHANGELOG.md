@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/flyntwp/generator-flynt/compare/v0.1.0...v0.1.1) (2017-08-29)
+
+
+### Bug Fixes
+
+* **generators:** validate flynt project before starting generators ([#18](https://github.com/flyntwp/generator-flynt/issues/18)) ([690728b](https://github.com/flyntwp/generator-flynt/commit/690728b))
+* **generators/component:** update stylus template variables ([#14](https://github.com/flyntwp/generator-flynt/issues/14)) ([63fbf34](https://github.com/flyntwp/generator-flynt/commit/63fbf34))
+* **generators/component:** validate component name before creating files ([#17](https://github.com/flyntwp/generator-flynt/issues/17)) ([3425408](https://github.com/flyntwp/generator-flynt/commit/3425408))
+* **generators/feature:** validate feature name before creating files ([#19](https://github.com/flyntwp/generator-flynt/issues/19)) ([1ad050a](https://github.com/flyntwp/generator-flynt/commit/1ad050a))
+
+
+### Features
+
+* **generators/component:** add option for single file generation ([#16](https://github.com/flyntwp/generator-flynt/issues/16)) ([06ba04d](https://github.com/flyntwp/generator-flynt/commit/06ba04d))
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2017-06-09)
 
