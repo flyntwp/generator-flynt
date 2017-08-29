@@ -12,7 +12,6 @@ module.exports = class extends Generator {
   initializing () {
     helpers.checkValidFlyntDirectory(this)
     this.themePath = helpers.getThemePath(this)
-    this.log(this.themePath)
     this.log('Starting Flynt Component Generator...')
   }
 
