@@ -61,6 +61,10 @@ module.exports = class extends Generator {
           if (!input.length) {
             return 'Please enter a name!'
           }
+          const validStringRegEx = /^[A-Z][A-Za-z]*$/g
+          if (!validStringRegEx.test(input)) {
+            return 'Invalid component name'
+          }
           return true
         }
       }
