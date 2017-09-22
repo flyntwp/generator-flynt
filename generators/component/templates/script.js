@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 class <%= nameUpperCamelCase %> extends window.HTMLDivElement {
   constructor (self) {
     self = super(self)
@@ -7,11 +9,9 @@ class <%= nameUpperCamelCase %> extends window.HTMLDivElement {
   }
 
   resolveElements () {
-    this.$element = $('.element', this)
   }
 
   connectedCallback () {
-    console.log('module <%= namePretty %> connected', this)
   }
 }
 
