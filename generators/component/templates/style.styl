@@ -1,8 +1,6 @@
-$rupture.scale = lookup('$globalLayoutScale') || (0 576px 768px 992px 1200px)
-$rupture.anti-overlap = lookup('$globalLayoutOverlap') || -1px
-$gutterWidth = lookup('$globalLayoutGutterWidth') || 1.5
+$rupture.scale = lookup('$globalRuptureScale') || (0 576px 768px 992px 1200px)
+$rupture.anti-overlap = lookup('$globalRuptureOverlap') || -1px
 $containerPadding = lookup('$globalLayoutContainerPadding') || 15px
-$containerMaxWidth = lookup('$globalLayoutContainerMaxWidth') || 1140px
 
 .flyntComponent[is="flynt-<%= nameKebabCase %>"]
   *,
