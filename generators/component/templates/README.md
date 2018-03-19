@@ -8,11 +8,7 @@
 
 ### Category: 
 
-Select one of :
-Accordion / Calendar / Form / Hero / Map / Modal / Navigation / Sidebar / Slider / Table / Tabs
-
-Or if none of the above are relevant select: 
-Block / Document / Grid /Layout / List
+<%= category %>
 
 ---
 

@@ -113,6 +113,7 @@ module.exports = class extends Generator {
   }
 
   writing () {
+    this.category = this._getCategoryName(this.name)
     this.namePretty = _.startCase(this.name)
     this.namePrettySplit = this._splitPrettyName(this.namePretty)
     this.nameKebabCase = _.kebabCase(this.name)
@@ -124,6 +125,10 @@ module.exports = class extends Generator {
     } else {
       this._writeComponentFile()
     }
+  }
+
+  _getCategoryName (name) {
+    return name.split(/(?=[A-Z])/)[0].trim()
   }
 
   _splitPrettyName (name) {
@@ -145,6 +150,7 @@ module.exports = class extends Generator {
       this.templatePath(`!(*.jpg)`),
       destDir,
       {
+        category: this.category,
         namePretty: this.namePretty,
         namePrettySplit: this.namePrettySplit,
         nameKebabCase: this.nameKebabCase,
@@ -173,6 +179,7 @@ module.exports = class extends Generator {
         this.templatePath(`*(${templateFiles.join('|')})`),
         destDir,
         {
+          category: this.category,
           namePretty: this.namePretty,
           namePrettySplit: this.namePrettySplit,
           nameKebabCase: this.nameKebabCase,
