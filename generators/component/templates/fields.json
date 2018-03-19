@@ -7,7 +7,7 @@
   ],
   "layout": {
     "name": "<%= nameLowerCamelCase %>",
-    "label": "<%= namePretty %>",
+    "label": "<%= namePrettySplit %>",
     "sub_fields": [
       
     ]

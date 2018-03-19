@@ -114,6 +114,7 @@ module.exports = class extends Generator {
 
   writing () {
     this.namePretty = _.startCase(this.name)
+    this.namePrettySplit = this._splitPrettyName(this.namePretty)
     this.nameKebabCase = _.kebabCase(this.name)
     this.nameLowerCamelCase = _.camelCase(this.name)
     this.nameUpperCamelCase = _.upperFirst(this.nameLowerCamelCase)
@@ -125,7 +126,12 @@ module.exports = class extends Generator {
     }
   }
 
-  _writeCustomComponent() {
+  _splitPrettyName (name) {
+    const arr = name.split(/(?=[A-Z])/).map(s => s.trim())
+    return arr.shift() + ': ' + arr.join('')
+  }
+
+  _writeCustomComponent () {
     this.log('Creating files...')
     
     const destDir = `${this.themePath}/Components/${this.nameUpperCamelCase}/`
@@ -140,6 +146,7 @@ module.exports = class extends Generator {
       destDir,
       {
         namePretty: this.namePretty,
+        namePrettySplit: this.namePrettySplit,
         nameKebabCase: this.nameKebabCase,
         nameUpperCamelCase: this.nameUpperCamelCase,
         nameLowerCamelCase: this.nameLowerCamelCase
@@ -167,6 +174,7 @@ module.exports = class extends Generator {
         destDir,
         {
           namePretty: this.namePretty,
+          namePrettySplit: this.namePrettySplit,
           nameKebabCase: this.nameKebabCase,
           nameUpperCamelCase: this.nameUpperCamelCase,
           nameLowerCamelCase: this.nameLowerCamelCase
