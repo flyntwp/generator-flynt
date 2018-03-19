@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/flyntwp/generator-flynt/compare/v0.1.2...v0.2.0) (2018-03-19)
+
+
+### Bug Fixes
+
+* **generator/component:** update containerPadding variable name ([477d3ca](https://github.com/flyntwp/generator-flynt/commit/477d3ca))
+* **generators/component:** use "component" instead of "module" in twig template ([49b0a08](https://github.com/flyntwp/generator-flynt/commit/49b0a08))
+* **generators/component:** use correct names for rupture vars and remove unnecessary vars ([#22](https://github.com/flyntwp/generator-flynt/issues/22)) ([1311233](https://github.com/flyntwp/generator-flynt/commit/1311233))
+
+
+### Features
+
+* **generators/component:** add category name to readme automatically ([1b199c2](https://github.com/flyntwp/generator-flynt/commit/1b199c2))
+* **generators/component:** add split pretty name variable ([9f0fb89](https://github.com/flyntwp/generator-flynt/commit/9f0fb89))
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/flyntwp/generator-flynt/compare/v0.1.1...v0.1.2) (2017-09-22)
 
