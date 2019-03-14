@@ -2,12 +2,27 @@
 
 namespace Flynt\Components\<%= nameUpperCamelCase %>;
 
-use Flynt\Features\Components\Component;
+use Flynt;
+use Flynt\Utils\Options;
 
 add_filter('Flynt/addComponentData?name=<%= nameUpperCamelCase %>', function ($data) {
-    add_action('wp_enqueue_scripts', function () {
-        Component::enqueueAssets('<%= nameUpperCamelCase %>');
-    });
-
     return $data;
 });
+
+// Flynt\registerFields('<%= nameUpperCamelCase %>', [
+//     'layout' => [
+//         'name' => '<%= nameLowerCamelCase %>',
+//         'label' => '<%= namePrettySplit %>',
+//         'sub_fields' => [
+            
+//         ]
+//     ]
+// ]);
+
+// Options::addTranslatable('<%= nameUpperCamelCase %>', [
+    
+// ]);
+
+// Options::addGlobal('<%= nameUpperCamelCase %>', [
+    
+// ]);

@@ -15,4 +15,4 @@ class <%= nameUpperCamelCase %> extends window.HTMLDivElement {
   }
 }
 
-window.customElements.define('flynt-<%= nameKebabCase %>', <%= nameUpperCamelCase %>, {extends: 'div'})
+window.customElements.define('flynt-<%= nameKebabCase %>', <%= nameUpperCamelCase %>, { extends: 'div' })

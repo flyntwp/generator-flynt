@@ -138,13 +138,8 @@ module.exports = class extends Generator {
 
   _writeCustomComponent () {
     this.log('Creating files...')
-    
-    const destDir = `${this.themePath}/Components/${this.nameUpperCamelCase}/`
 
-    this.fs.copy(
-      this.templatePath(`*.jpg`),
-      destDir
-    )
+    const destDir = `${this.themePath}/Components/${this.nameUpperCamelCase}/`
 
     this.fs.copyTpl(
       this.templatePath(`!(*.jpg)`),
