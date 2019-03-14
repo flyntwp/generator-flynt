@@ -22,10 +22,6 @@ module.exports = class extends Generator {
         {
           name: 'Component',
           value: 'component'
-        },
-        {
-          name: 'Feature',
-          value: 'feature'
         }
       ]
     }]).then((answers) => {
@@ -36,8 +32,6 @@ module.exports = class extends Generator {
   default() {
     if (this.createType === 'component') {
       this.composeWith(require.resolve('../component'))
-    } else if (this.createType === 'feature') {
-      this.composeWith(require.resolve('../feature'))
     }
   }
 }

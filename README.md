@@ -5,11 +5,13 @@
 
 ## Table of Contents
 
-- [Install](#install)
-- [Usage](#usage)
-- [Maintainers](#maintainers)
-- [Contribute](#contribute)
-- [License](#license)
+- [Flynt Yeoman Generator _(generator-flynt)_](#flynt-yeoman-generator-generator-flynt)
+  - [Table of Contents](#table-of-contents)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Maintainers](#maintainers)
+  - [Contribute](#contribute)
+  - [License](#license)
 
 ## Install
 
@@ -27,7 +29,7 @@ $ yarn global add @flyntwp/generator-flynt
 
 ## Usage
 
-Run `yo @flyntwp/flynt` to start the generator. You can select between **Components** and **Features**.
+Run `yo @flyntwp/flynt` to start the generator. You can select **Components**.
 
 ## Maintainers
 
@@ -37,7 +39,7 @@ The main people in charge of the repo are:
 
 - [Dominik Tränklein](https://github.com/domtra)
 - [Doğa Gürdal](https://github.com/Qakulukiam)
-- [Dominik Biedebach](https://github.com/bdbch)
+- [Markus Müller](h[ttps://github.com/bdbch](https://github.com/usingthesystem))
 
 ## Contribute
 
