@@ -15,7 +15,7 @@
 
 ## Install
 
-The node version used should be `^6`. If you use a node version manager (e.g. [nave](https://github.com/isaacs/nave)), use `npm` to install globally:
+The node version used should be `^10`. If you use a node version manager (e.g. [nave](https://github.com/isaacs/nave)), use `npm` to install globally:
 
 ```bash
 $ npm i -g @flyntwp/generator-flynt
