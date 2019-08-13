@@ -39,7 +39,7 @@ The main people in charge of the repo are:
 
 - [Dominik Tränklein](https://github.com/domtra)
 - [Doğa Gürdal](https://github.com/Qakulukiam)
-- [Markus Müller](h[ttps://github.com/bdbch](https://github.com/usingthesystem))
+- [Markus Müller](https://github.com/usingthesystem)
 
 ## Contribute
 
