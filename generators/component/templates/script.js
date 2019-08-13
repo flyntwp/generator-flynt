@@ -28,15 +28,13 @@ class <%= nameUpperCamelCase %> extends window.HTMLDivElement {
     return {}
   }
 
-  bindFunctions () {
+  resolveElements () {
+  }
 
+  bindFunctions () {
   }
 
   bindEvents () {
-
-  }
-
-  resolveElements () {
   }
 
   connectedCallback () {
