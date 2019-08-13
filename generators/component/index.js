@@ -1,177 +1,179 @@
-const Generator = require('yeoman-generator')
-const _ = require('lodash')
-const fs = require('fs')
-const categories = require('./data/categories.js')
-const helpers = require('../app/helpers.js')
+const Generator = require("yeoman-generator");
+const _ = require("lodash");
+const fs = require("fs");
+const categories = require("./data/categories.js");
 
 module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
   }
 
-  initializing () {
-    helpers.checkValidFlyntDirectory(this)
-    this.themePath = helpers.getThemePath(this)
-    this.log('Starting Flynt Component Generator...')
+  initializing() {
+    this.themePath = this.destinationPath("theme/");
+    this.log("Starting Flynt Component Generator...");
   }
 
-  prompting () {
+  prompting() {
     return this.prompt([
       {
-        type: 'list',
-        name: 'type',
-        message: 'Please select your desired action:',
+        type: "list",
+        name: "type",
+        message: "Please select your desired action:",
         choices: [
           {
-            name: 'Create a custom component from scratch',
-            value: 'custom'
+            name: "Create a custom component from scratch",
+            value: "custom",
           },
           {
-            name: 'Add a template file to an existing component',
-            value: 'file'
-          }
-        ]
-      }
-    ]).then((answers) => {
-      this.type = answers.type
-      if (this.type === 'custom') {
-        return this._promptCustomComponent().then((answers) => {
-          this.name = _.upperFirst(answers.name)
+            name: "Add a template file to an existing component",
+            value: "file",
+          },
+        ],
+      },
+    ]).then(answers => {
+      this.type = answers.type;
+      if (this.type === "custom") {
+        return this._promptCustomComponent().then(answers => {
+          this.name = _.upperFirst(answers.name);
           if (answers.category) {
-            this.name = answers.category + this.name
+            this.name = answers.category + this.name;
           }
-        })
-      } else if (this.type === 'file') {
-        return this._promptComponentFile()
+        });
+      } else if (this.type === "file") {
+        return this._promptComponentFile();
       }
-    })
+    });
   }
 
   _promptCustomComponent() {
     return this.prompt([
       {
-        type: 'list',
-        name: 'category',
-        message: 'What category does your new component fit best?',
-        choices: categories
+        type: "list",
+        name: "category",
+        message: "What category does your new component fit best?",
+        choices: categories,
       },
       {
-        type: 'input',
-        name: 'name',
-        message: 'Name of the new component in UpperCamelCase',
-        validate: function (input) {
+        type: "input",
+        name: "name",
+        message: "Name of the new component in UpperCamelCase",
+        validate: function(input) {
           if (!input.length) {
-            return 'Please enter a name!'
+            return "Please enter a name!";
           }
-          const validStringRegEx = /^[A-Z][A-Za-z]*$/g
+          const validStringRegEx = /^[A-Z][A-Za-z]*$/g;
           if (!validStringRegEx.test(input)) {
-            return 'Invalid component name'
+            return "Invalid component name";
           }
-          return true
-        }
-      }
-    ])
+          return true;
+        },
+      },
+    ]);
   }
 
   _promptComponentFile() {
-    const templateFiles = fs.readdirSync(this.templatePath())
-    const components = fs.readdirSync(`${this.themePath}/Components`)
-      .filter(file => fs.statSync(`${this.themePath}/Components/${file}`).isDirectory())
+    const templateFiles = fs.readdirSync(this.templatePath());
+    const components = fs
+      .readdirSync(`${this.themePath}/Components`)
+      .filter(file =>
+        fs.statSync(`${this.themePath}/Components/${file}`).isDirectory()
+      )
       .reduce((carry, component) => {
-        const existingFiles = fs.readdirSync(`${this.themePath}/Components/${component}`)
+        const existingFiles = fs.readdirSync(
+          `${this.themePath}/Components/${component}`
+        );
         const validFiles = _.differenceWith(
           templateFiles,
           existingFiles,
           (a, b) => a.toLowerCase() === b.toLowerCase()
-        )
+        );
         if (validFiles.length) {
-          carry[component] = validFiles
+          carry[component] = validFiles;
         }
-        return carry
-      }, [])
+        return carry;
+      }, []);
     return this.prompt([
       {
-        type: 'list',
-        name: 'name',
-        message: 'Select a component to add files to',
-        choices: Object.keys(components)
-      }
-    ]).then((answers) => {
-      this.name = answers.name
-      return this.prompt([
-        {
-          type: 'checkbox',
-          name: 'files',
-          message: 'Select the file(s) you would like to generate',
-          choices: components[answers.name],
-          validate: (answer) => answer.length > 0 || 'Please choose at least one file to add.'
-        }
-      ])
-    }).then((answers) => {
-      this.files = answers.files
-    })
+        type: "list",
+        name: "name",
+        message: "Select a component to add files to",
+        choices: Object.keys(components),
+      },
+    ])
+      .then(answers => {
+        this.name = answers.name;
+        return this.prompt([
+          {
+            type: "checkbox",
+            name: "files",
+            message: "Select the file(s) you would like to generate",
+            choices: components[answers.name],
+            validate: answer =>
+              answer.length > 0 || "Please choose at least one file to add.",
+          },
+        ]);
+      })
+      .then(answers => {
+        this.files = answers.files;
+      });
   }
 
-  writing () {
-    this.category = this._getCategoryName(this.name)
-    this.namePretty = _.startCase(this.name)
-    this.namePrettySplit = this._splitPrettyName(this.namePretty)
-    this.nameKebabCase = _.kebabCase(this.name)
-    this.nameLowerCamelCase = _.camelCase(this.name)
-    this.nameUpperCamelCase = _.upperFirst(this.nameLowerCamelCase)
+  writing() {
+    this.category = this._getCategoryName(this.name);
+    this.namePretty = _.startCase(this.name);
+    this.namePrettySplit = this._splitPrettyName(this.namePretty);
+    this.nameKebabCase = _.kebabCase(this.name);
+    this.nameLowerCamelCase = _.camelCase(this.name);
+    this.nameUpperCamelCase = _.upperFirst(this.nameLowerCamelCase);
 
-    if (this.type === 'custom') {
-      this._writeCustomComponent()
+    if (this.type === "custom") {
+      this._writeCustomComponent();
     } else {
-      this._writeComponentFile()
+      this._writeComponentFile();
     }
   }
 
-  _getCategoryName (name) {
-    return name.split(/(?=[A-Z])/)[0].trim()
+  _getCategoryName(name) {
+    return name.split(/(?=[A-Z])/)[0].trim();
   }
 
-  _splitPrettyName (name) {
-    const arr = name.split(/(?=[A-Z])/).map(s => s.trim())
-    return arr.shift() + ': ' + arr.join('')
+  _splitPrettyName(name) {
+    const arr = name.split(/(?=[A-Z])/).map(s => s.trim());
+    return arr.shift() + ": " + arr.join("");
   }
 
-  _writeCustomComponent () {
-    this.log('Creating files...')
+  _writeCustomComponent() {
+    this.log("Creating files...");
 
-    const destDir = `${this.themePath}/Components/${this.nameUpperCamelCase}/`
+    const destDir = `${this.themePath}/Components/${this.nameUpperCamelCase}/`;
 
-    this.fs.copyTpl(
-      this.templatePath(`!(*.jpg)`),
-      destDir,
-      {
-        category: this.category,
-        namePretty: this.namePretty,
-        namePrettySplit: this.namePrettySplit,
-        nameKebabCase: this.nameKebabCase,
-        nameUpperCamelCase: this.nameUpperCamelCase,
-        nameLowerCamelCase: this.nameLowerCamelCase
-      }
-    )
+    this.fs.copyTpl(this.templatePath(`!(*.jpg)`), destDir, {
+      category: this.category,
+      namePretty: this.namePretty,
+      namePrettySplit: this.namePrettySplit,
+      nameKebabCase: this.nameKebabCase,
+      nameUpperCamelCase: this.nameUpperCamelCase,
+      nameLowerCamelCase: this.nameLowerCamelCase,
+    });
   }
 
   _writeComponentFile() {
-    this.log(`Adding ${this.files.join(', ')} to ${this.name}...`)
+    this.log(`Adding ${this.files.join(", ")} to ${this.name}...`);
 
-    const nonTemplateFiles = this.files.filter(file => file.endsWith('.jpg'))
-    const templateFiles = _.difference(this.files, nonTemplateFiles)
-    const destDir = `${this.themePath}/Components/${this.name}/`
+    const nonTemplateFiles = this.files.filter(file => file.endsWith(".jpg"));
+    const templateFiles = _.difference(this.files, nonTemplateFiles);
+    const destDir = `${this.themePath}/Components/${this.name}/`;
 
     if (nonTemplateFiles.length) {
       this.fs.copy(
-        this.templatePath(`*(${nonTemplateFiles.join('|')})`),
+        this.templatePath(`*(${nonTemplateFiles.join("|")})`),
         destDir
-      )
+      );
     }
 
     if (templateFiles.length) {
       this.fs.copyTpl(
-        this.templatePath(`*(${templateFiles.join('|')})`),
+        this.templatePath(`*(${templateFiles.join("|")})`),
         destDir,
         {
           category: this.category,
@@ -179,17 +181,17 @@ module.exports = class extends Generator {
           namePrettySplit: this.namePrettySplit,
           nameKebabCase: this.nameKebabCase,
           nameUpperCamelCase: this.nameUpperCamelCase,
-          nameLowerCamelCase: this.nameLowerCamelCase
+          nameLowerCamelCase: this.nameLowerCamelCase,
         }
-      )
+      );
     }
   }
 
-  end () {
-    if (this.type === 'custom') {
-      this.log(`Successfully created component: ${this.nameUpperCamelCase}`)
-    } else if (this.type === 'file') {
-      this.log('File generation successful')
+  end() {
+    if (this.type === "custom") {
+      this.log(`Successfully created component: ${this.nameUpperCamelCase}`);
+    } else if (this.type === "file") {
+      this.log("File generation successful");
     }
   }
-}
+};
