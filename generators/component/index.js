@@ -147,7 +147,7 @@ module.exports = class extends Generator {
 
     const destDir = `${this.themePath}/Components/${this.nameUpperCamelCase}/`;
 
-    this.fs.copyTpl(this.templatePath(`!(*.jpg)`), destDir, {
+    this.fs.copyTpl(this.templatePath(`!(*.png)`), destDir, {
       category: this.category,
       namePretty: this.namePretty,
       namePrettySplit: this.namePrettySplit,
@@ -160,7 +160,7 @@ module.exports = class extends Generator {
   _writeComponentFile() {
     this.log(`Adding ${this.files.join(", ")} to ${this.name}...`);
 
-    const nonTemplateFiles = this.files.filter(file => file.endsWith(".jpg"));
+    const nonTemplateFiles = this.files.filter(file => file.endsWith(".png"));
     const templateFiles = _.difference(this.files, nonTemplateFiles);
     const destDir = `${this.themePath}/Components/${this.name}/`;
 
