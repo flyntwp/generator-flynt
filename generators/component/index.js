@@ -147,6 +147,8 @@ module.exports = class extends Generator {
 
     const destDir = `${this.themePath}/Components/${this.nameUpperCamelCase}/`;
 
+    this.fs.copy(this.templatePath(`*.png`), destDir);
+
     this.fs.copyTpl(this.templatePath(`!(*.png)`), destDir, {
       category: this.category,
       namePretty: this.namePretty,
