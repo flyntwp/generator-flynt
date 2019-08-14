@@ -1,6 +1,31 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [0.3.0](https://github.com/flyntwp/generator-flynt/compare/v0.2.1...v0.3.0) (2019-08-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* **app:** not checking flynt json anymore since this doesn't exist anymore
+* **app:** now relying on theme symlink for component creation
+
+### Bug Fixes
+
+* **generators/component:** add back png file copy ([b66688e](https://github.com/flyntwp/generator-flynt/commit/b66688e))
+* **generators/component:** prevent linting errors ([8f1743b](https://github.com/flyntwp/generator-flynt/commit/8f1743b))
+* **generators/component:** rename sass file ([fd02769](https://github.com/flyntwp/generator-flynt/commit/fd02769))
+* **generators/component:** replace jpg restriction with png ([d66461c](https://github.com/flyntwp/generator-flynt/commit/d66461c))
+
+
+### Features
+
+* **app:** remove helpers and format scripts ([a4d0c07](https://github.com/flyntwp/generator-flynt/commit/a4d0c07))
+* **app:** remove prompting for types ([f2edd0e](https://github.com/flyntwp/generator-flynt/commit/f2edd0e))
+* **generator:** changed templates to new flynt stack ([892ebe2](https://github.com/flyntwp/generator-flynt/commit/892ebe2))
+* **generators/component:** add back readme and screenshot ([bb05bd3](https://github.com/flyntwp/generator-flynt/commit/bb05bd3))
+* **generators/component:** include best practices in template files ([db3b12d](https://github.com/flyntwp/generator-flynt/commit/db3b12d))
+* **generators/component:** use new Api class to register fields ([bf895dd](https://github.com/flyntwp/generator-flynt/commit/bf895dd))
 
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/flyntwp/generator-flynt/compare/v0.2.0...v0.2.1) (2018-05-17)
