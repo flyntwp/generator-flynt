@@ -13,7 +13,7 @@ function getACFLayout()
 {
     return [
         'name' => '<%= nameLowerCamelCase %>',
-        'label' => '<%= namePrettySplit %>',
+        'label' => __('<%= namePrettySplit %>', 'flynt'),
         'sub_fields' => [
             [
                 'label' => __('General', 'flynt'),
