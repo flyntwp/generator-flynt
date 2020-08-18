@@ -12,18 +12,18 @@ add_filter('Flynt/addComponentData?name=<%= nameUpperCamelCase %>', function ($d
 function getACFLayout()
 {
     return [
-        'name' => '<%= nameUpperCamelCase %>',
-        'label' => '<%= namePretty %>',
+        'name' => '<%= nameLowerCamelCase %>',
+        'label' => '<%= namePrettySplit %>',
         'sub_fields' => [
             [
-                'label' => 'General',
+                'label' => __('General', 'flynt'),
                 'name' => 'generalTab',
                 'type' => 'tab',
                 'placement' => 'top',
                 'endpoint' => 0,
             ],
             [
-                'label' => 'Options',
+                'label' => __('Options', 'flynt'),
                 'name' => 'optionsTab',
                 'type' => 'tab',
                 'placement' => 'top',
