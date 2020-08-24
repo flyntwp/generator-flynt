@@ -2,27 +2,28 @@
 
 namespace Flynt\Components\<%= nameUpperCamelCase %>;
 
-use Flynt\Api;
+use Flynt\FieldVariables;
 use Flynt\Utils\Options;
 
 add_filter('Flynt/addComponentData?name=<%= nameUpperCamelCase %>', function ($data) {
     return $data;
 });
 
-Api::registerFields('<%= nameUpperCamelCase %>', [
-    'layout' => [
+function getACFLayout()
+{
+    return [
         'name' => '<%= nameLowerCamelCase %>',
-        'label' => '<%= namePrettySplit %>',
+        'label' => __('<%= namePrettySplit %>', 'flynt'),
         'sub_fields' => [
             [
-                'label' => 'General',
+                'label' => __('General', 'flynt'),
                 'name' => 'generalTab',
                 'type' => 'tab',
                 'placement' => 'top',
                 'endpoint' => 0,
             ],
             [
-                'label' => 'Options',
+                'label' => __('Options', 'flynt'),
                 'name' => 'optionsTab',
                 'type' => 'tab',
                 'placement' => 'top',
@@ -34,17 +35,17 @@ Api::registerFields('<%= nameUpperCamelCase %>', [
                 'type' => 'group',
                 'layout' => 'row',
                 'sub_fields' => [
-                    Api::loadFields('FieldVariables', 'theme'),
+                    FieldVariables\getTheme()
                 ],
             ],
-        ],
-    ],
-]);
+        ]
+    ];
+}
 
 Options::addTranslatable('<%= nameUpperCamelCase %>', [
-    
+
 ]);
 
 Options::addGlobal('<%= nameUpperCamelCase %>', [
-    
+
 ]);
