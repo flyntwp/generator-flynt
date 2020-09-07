@@ -17,6 +17,12 @@
 
 The node version used should be `^10`. If you use a node version manager (e.g. [nave](https://github.com/isaacs/nave)), use `npm` to install globally:
 
+First install Yeoman:
+```bash
+$ npm i -g yo
+```
+
+Install the generator
 ```bash
 $ npm i -g @flyntwp/generator-flynt
 ```
