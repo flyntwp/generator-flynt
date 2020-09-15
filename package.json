@@ -1,6 +1,6 @@
 {
   "name": "@flyntwp/generator-flynt",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A Yeoman generator for Flynt",
   "homepage": "https://github.com/flyntwp/generator-flynt",
   "bugs": "https://github.com/flyntwp/generator-flynt/issues",
