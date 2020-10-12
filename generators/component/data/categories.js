@@ -10,14 +10,6 @@ module.exports = [
     value: 'Block'
   },
   {
-    name: 'Calendar (A table for date related data)',
-    value: 'Calendar'
-  },
-  {
-    name: 'Document',
-    value: 'Document'
-  },
-  {
     name: 'Form',
     value: 'Form'
   },
@@ -30,16 +22,8 @@ module.exports = [
     value: 'Hero'
   },
   {
-    name: 'Layout (Contains different component areas)',
-    value: 'Layout'
-  },
-  {
     name: 'List (Items in a horizontal or vertical list)',
     value: 'List'
-  },
-  {
-    name: 'Map',
-    value: 'Map'
   },
   {
     name: 'Modal',
@@ -50,20 +34,8 @@ module.exports = [
     value: 'Navigation'
   },
   {
-    name: 'Sidebar',
-    value: 'Sidebar'
-  },
-  {
     name: 'Slider',
     value: 'Slider'
-  },
-  {
-    name: 'Table',
-    value: 'Table'
-  },
-  {
-    name: 'Tabs',
-    value: 'Tabs'
   },
   {
     name: 'Video',
