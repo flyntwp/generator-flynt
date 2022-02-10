@@ -9,7 +9,7 @@ module.exports = class extends Generator {
   }
 
   initializing() {
-    this.themePath = this.destinationPath("theme/");
+    this.themePath = this.destinationPath(".");
     this.log("Starting Flynt Component Generator...");
   }
 
