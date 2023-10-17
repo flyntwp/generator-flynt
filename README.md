@@ -3,6 +3,8 @@
 
 > A Yeoman generator for [Flynt](https://flyntwp.com)
 
+**:warning: DEPRECATED. This repository is no longer in active development. For the latest version of Flynt please use the [new Flynt repository](https://github.com/flyntwp/flynt). :warning:**
+
 ## Table of Contents
 
 - [Flynt Yeoman Generator _(generator-flynt)_](#flynt-yeoman-generator-generator-flynt)
